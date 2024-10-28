@@ -1,15 +1,18 @@
 
 using OOP;
 
-namespace Pulsantiera
+namespace OOP
 {
-
- 
+    public interface ICamera 
+    {
+        void Registra();
+        void StopRegistra();
+    }
     public class ControlloRemotoVideoCamera
     {
       
-        public Camera camera { get; set; }
-        public ControlloRemotoVideoCamera(Camera camera)
+        public ICamera camera { get; set; }
+        public ControlloRemotoVideoCamera(ICamera camera)
         {
             this.camera=camera;
             Console.WriteLine("Premi 'r' per avviare la registrazione, 's' per fermarla, 'q' per uscire.");
@@ -40,5 +43,6 @@ namespace Pulsantiera
                 }
             }
         }
+        
     }
 }

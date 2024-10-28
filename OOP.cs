@@ -1,3 +1,6 @@
+using System.ComponentModel.DataAnnotations;
+
+
 namespace OOP 
 {
     
@@ -26,7 +29,7 @@ namespace OOP
         return TipoMicrofono;
         }
     }
-    public class Camera {
+    public class Camera : ICamera{
 
         public virtual bool RichiestoStop { get; set; } = false;
         public virtual bool StaRegistrando { get; set; } = false;
@@ -91,6 +94,27 @@ namespace OOP
             }
             this.RichiestoStop = true;
             this.StaRegistrando = false;
+        }
+    }
+
+
+
+
+
+
+
+
+// CompactCamera (classe filha) extends Camera (em java ha)
+    public class CompactCamera : Camera {
+        
+        string display {get; set;} = "LCD";
+
+        public override void Registra()
+        {
+            Console.WriteLine("REGISTRO DELLA CAMERA COMPATTA |||||");
+
+            // base eh super em Java, referencia a classe mae
+            base.Registra();
         }
     }
 }
